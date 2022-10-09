@@ -1,3 +1,11 @@
+# Inserisci le informazioni qui
+# NBi = Non Bionda
+# NGo = Non Gonna
+# NOc = Non Ccchiali
+# Bi = Bionda
+# Go = Gonna
+# Oc = Occhiali
+
 A = ["NBi","NGo","Oc"]
 B = ["Bi","NGo","NOc"]
 C = ["Bi","NGo","NOc"]
@@ -6,17 +14,15 @@ E = ["Bi","NGo","Oc"]
 F = ["Bi","Go","NOc"]
 G = ["Bi","Go","Oc"]
 H = ["Bi","Go","Oc"]
-all = {
-    "A": A,
-    "B": B,
-    "C": C,
-    "D": D,
-    "E": E,
-    "F": F,
-    "G": G,
-    "H": H
-}
-listconfirm = input(str(all)
+
+##########################################################
+
+import os
+
+##########################################################
+
+def AskConfirmation():
+    listconfirm = input(str(all)
                     .replace("],","],\n")
                     .replace("["," ")
                     .replace("]"," ")
@@ -29,13 +35,33 @@ listconfirm = input(str(all)
                     .replace(", 'NOc' ,"," e non ha gli occhiali")
                     .replace(", 'Oc' ,"," e     ha gli occhiali")
                     .replace(", 'Oc'"," e     ha gli occhiali"))
+    if listconfirm.lower().strip() == "n":
+        print(" Chiusura...")
+        exit()
+    elif listconfirm.lower().strip() == "":
+        print(" Chiusura...")
+        exit()
+    elif listconfirm.lower().strip() == "y":
+        pass
+    else:
+        os.system("cls")
+        print(" Riprova\n")
+        AskConfirmation()
 
-if listconfirm.lower() == "n":
-    print("Chiusura...")
-    exit()
-elif listconfirm.lower() == "":
-    print("Chiusura...")
-    exit()
-elif listconfirm.lower() == "y":
-    print("La lista è confermata")
-    
+##########################################################
+
+all = {
+    "A": A,
+    "B": B,
+    "C": C,
+    "D": D,
+    "E": E,
+    "F": F,
+    "G": G,
+    "H": H
+}
+
+##########################################################
+
+os.system("cls")
+AskConfirmation()
