@@ -15,6 +15,15 @@ F = ["Bi","Go","NOc"]
 G = ["Bi","Go","Oc"]
 H = ["Bi","Go","Oc"]
 
+Ar = "Go"
+Br = "Bi"
+Cr = "Oc"
+Dr = "Go"
+Er = "NGo"
+Fr = "Bi"
+Gr = "Go"
+Hr = "Oc"
+
 ##########################################################
 
 import os
@@ -48,7 +57,42 @@ def AskConfirmation():
         print(" Riprova\n")
         AskConfirmation()
 
+def AskQuestions():
+    listquestions = input(str(allQuestions)
+                    .replace("{","\n Risultano giuste le informazioni della sorella? [y/N] \n ")
+                    .replace("',","\n")
+                    .replace("'}","\n ")
+                    .replace("}"," \n ")
+                    .replace("'Bi","     è bionda")
+                    .replace("'NGo"," non ha la gonna")
+                    .replace("'Go","     ha la gonna")
+                    .replace("'Oc","     ha gli occhiali")
+    )
+    if listquestions.lower().strip() == "n":
+        print(" Chiusura...")
+        exit()
+    elif listquestions.lower().strip() == "":
+        print(" Chiusura...")
+        exit()
+    elif listquestions.lower().strip() == "y":
+        pass
+    else:
+        os.system("cls")
+        print(" Riprova\n")
+        AskConfirmation()
+
 ##########################################################
+
+allQuestions = {
+    "A": Ar,
+    "B": Br,
+    "C": Cr,
+    "D": Dr,
+    "E": Er,
+    "F": Fr,
+    "G": Gr,
+    "H": Hr
+}
 
 all = {
     "A": A,
@@ -65,3 +109,4 @@ all = {
 
 os.system("cls")
 AskConfirmation()
+AskQuestions()
