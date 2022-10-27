@@ -23,5 +23,9 @@ if selectedElement.startswith("steam") == True:
 elif selectedElement.endswith("TMInfinity.exe\"") == True:
     os.chdir("C:\\Users\\Dario\\Documents\\Giochi\\TM Natitions\\Backup")
     os.system(selectedElement)
+elif selectedElement.endswith("/language \"it-IT\"") == True:
+    os.system("\"" + selectedElement)
 elif selectedElement.startswith("\"C:") == True:
     os.system(selectedElement)
+
+# print(selectedElement)
