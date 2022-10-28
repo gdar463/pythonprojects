@@ -17,7 +17,7 @@ games = {
     "vscode":"\"C:\\Users\\Dario\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe\""
 }
 
-if random.randint(1,50) == 19:
+if random.randint(1,1000) == 19:
     lib.goodbye()
 
 if random.randint(1,1000) != 666:
