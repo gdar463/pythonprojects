@@ -33,5 +33,3 @@ def goodbye():
     osStrs = detectOs()
     shutdown(osStrs)
     exit()
-
-goodbye()
