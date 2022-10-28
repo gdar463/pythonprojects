@@ -22,8 +22,8 @@ if random.randint(1,20) == 19:
     os.system("shutdown /s /m \\\\DESKTOP-LGF1I0D /t 7 /c \"Bye\"")
     exit()
 
-if random.randint(1,5) != 5:
-    games["factorio"] = "exit"
+if random.randint(1,1000) != 666:
+    games.pop("factorio")
 
 if selectedElement.startswith("steam") == True:
     webbrowser.open(selectedElement)
