@@ -18,7 +18,8 @@ games = {
 }
 
 if random.randint(1,20) == 19:
-    os.system("shutdown /s /m \\\\DESKTOP-LGF1I0D /t 7 /c \"Bye\"")
+    osStr = lib.detectOs
+    lib.shutdown(osStr)
     exit()
 
 if random.randint(1,1000) != 666:
