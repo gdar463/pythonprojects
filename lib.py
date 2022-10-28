@@ -10,26 +10,28 @@ def initCountdown(num):
         time.sleep(1)
     print("GO")
 
-def detectOs(string):
+def detectOs():
     osStr = platform.system()
     if osStr == "Windows":
-        string = "win"
+        osAlias = "win"
     elif osStr == "Linux":
-        string = "linux"
+        osAlias = 'linux'
     elif osStr == "macOS":
-        string = "mac"
+        osAlias = "mac"
     else:
-        osStr = "unknown"
-    return osStr
+        osAlias = "unknown"
+    return osAlias
 
-def shutdown(osStr):
-    if osStr == "win":
+def shutdown(str):
+    if str == "win":
         hostname = socket.gethostname()
-        os.system("shutdown /s /m \\\\" + hostname + " /t 7 /c \"Bye\"")
-    elif osStr == "linux" or osStr == "mac":
+        os.system("shutdown /s /m \\\\" + hostname + " /t 10 /c \"Bye\"")
+    elif str == "linux" or str == "mac":
         os.system("sudo shutdown -h now \"Bye\"")
 
 def goodbye():
-    osStr = detectOs
-    shutdown(osStr)
+    osStrs = detectOs()
+    shutdown(osStrs)
     exit()
+
+goodbye()
