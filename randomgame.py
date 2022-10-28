@@ -18,9 +18,7 @@ games = {
 }
 
 if random.randint(1,20) == 19:
-    osStr = lib.detectOs
-    lib.shutdown(osStr)
-    exit()
+    lib.goodbye()
 
 if random.randint(1,1000) != 666:
     games.pop("factorio")

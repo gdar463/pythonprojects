@@ -30,3 +30,8 @@ def shutdown(osStr):
         os.system("sudo shutdown -h now \"Bye\"")
     elif osStr == "mac":
         print("Please shutdown your system by yourself")
+
+def goodbye():
+    osStr = detectOs
+    shutdown(osStr)
+    exit()
