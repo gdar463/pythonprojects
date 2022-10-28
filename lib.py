@@ -26,10 +26,8 @@ def shutdown(osStr):
     if osStr == "win":
         hostname = socket.gethostname()
         os.system("shutdown /s /m \\\\" + hostname + " /t 7 /c \"Bye\"")
-    elif osStr == "linux":
+    elif osStr == "linux" or osStr == "mac":
         os.system("sudo shutdown -h now \"Bye\"")
-    elif osStr == "mac":
-        print("Please shutdown your system by yourself")
 
 def goodbye():
     osStr = detectOs
