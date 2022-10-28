@@ -20,6 +20,7 @@ selectedElement = list(games.values())[selectedNum]
 
 if random.randint(1,20) == 19:
     os.system("shutdown /s /m \\\\DESKTOP-LGF1I0D /t 7 /c \"Bye\"")
+    exit()
 
 if selectedElement.startswith("steam") == True:
     webbrowser.open(selectedElement)
