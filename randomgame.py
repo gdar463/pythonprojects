@@ -17,15 +17,15 @@ games = {
     "vscode":"\"C:\\Users\\Dario\\AppData\\Local\\Programs\\Microsoft VS Code Insiders\\Code - Insiders.exe\""
 }
 
-selectedNum = random.randint(0,len(games)-1)
-selectedElement = list(games.values())[selectedNum]
-
 if random.randint(1,20) == 19:
     os.system("shutdown /s /m \\\\DESKTOP-LGF1I0D /t 7 /c \"Bye\"")
     exit()
 
 if random.randint(1,1000) != 666:
     games.pop("factorio")
+
+selectedNum = random.randint(0,len(games)-1)
+selectedElement = list(games.values())[selectedNum]
 
 if selectedElement.startswith("steam") == True:
     webbrowser.open(selectedElement)
