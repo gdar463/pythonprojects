@@ -12,6 +12,9 @@ while lib.checkIfProcRunning("PWAAT"):
         continue
     if random.randint(1,100) == 33:
         pyautogui.press("f12")
+        print("\nScreenshot!\n")
+    else:
+        print("Nope")
     time.sleep(1)
 
 print("No process found!")
