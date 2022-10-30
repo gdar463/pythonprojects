@@ -6,16 +6,24 @@ import os
 
 lib.initCountdown(5)
 
+processes = ("Code - Insiders", "acad", "javaw")
+
 while lib.checkIfProcRunning("PWAAT"):
-    if lib.checkIfProcRunning("PWAAT") == False:
-        time.sleep(1)
-        continue
-    if random.randint(1,100) == 33:
+    if random.randint(1,50) == 33:
         pyautogui.press("f12")
         print("\nScreenshot!\n")
     else:
         print("Nope")
-    time.sleep(1)
+    time.sleep(0.5)
+
+for (x) in processes:
+    while lib.checkIfProcRunning(x):
+        if random.randint(1,70) == 44:
+            with pyautogui.hold("ctrl"):
+                pyautogui.press("0")
+        else:
+            print("Nope")
+        time.sleep(1)
 
 print("No process found!")
 os.system("pause")
