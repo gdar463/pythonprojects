@@ -21,6 +21,7 @@ for (x) in processes:
         if random.randint(1,70) == 44:
             with pyautogui.hold("ctrl"):
                 pyautogui.press("0")
+                print("\nScreenshot!\n")
         else:
             print("Nope")
         time.sleep(1)
