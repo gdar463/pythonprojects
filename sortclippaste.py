@@ -9,7 +9,6 @@ clip_idx = [i for i, item in enumerate(clip) if item == ""]
 clip_idx.reverse()
 
 for x in clip_idx:
-    print(x)
     clip.pop(x)
 
 clip.sort(key=str.lower)
