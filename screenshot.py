@@ -1,8 +1,8 @@
-import time
-import random
-import pyautogui
 import lib
 import os
+import pyautogui
+import random
+import time
 
 lib.initCountdown(5)
 

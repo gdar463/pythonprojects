@@ -1,7 +1,7 @@
+import lib
+import os
 import random
 import webbrowser
-import os
-import lib
 
 lib.initCountdown(5)
 

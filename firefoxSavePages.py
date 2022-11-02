@@ -1,10 +1,10 @@
-import webbrowser
-import pyautogui
-import pywinauto
-import pyperclip
-import time
 import lib
 import os
+import pyautogui
+import pyperclip
+import pywinauto
+import time
+import webbrowser
 
 lib.initCountdown(5)
 

@@ -1,8 +1,8 @@
-import time
-import platform
-import socket
 import os
+import platform
 import psutil
+import socket
+import time
 
 def initCountdown(num):
     for(x) in range(num):
