@@ -5,13 +5,16 @@ import re
 import time
 import webbrowser
 
-trackNum = input("How many tracks do you want?")
+trackNum = input("How many tracks do you want?\n")
 
 tracks = []
 
+webbrowser.open("google.com")
+time.sleep(5)
+
 for x in range(int(trackNum)):
     webbrowser.open("https://tmnf.exchange/trackrandom", 0, True)
-    time.sleep(3)
+    time.sleep(5)
     pyautogui.click(400,60)
     with pyautogui.hold("ctrl"):
         pyautogui.press(["a","c"])
@@ -20,11 +23,10 @@ for x in range(int(trackNum)):
         pyautogui.press("w")
     time.sleep(0.5)
 
-track0 = re.sub("/D", "", tracks[0][-7:])
-webbrowser.open("https://tmnf.exchange/trackplay/" + track0, 1, False)
+webbrowser.open("https://tmnf.exchange/trackplay/" + "".join(filter(str.isdigit, tracks[0])), 0, False)
 tracks.pop(0)
+os.system("pause")
 
 for x in tracks:
-    x = re.sub("/D", "", x[-7:])
-    webbrowser.open("https://tmnf.exchange/trackplay/" + x, 0, False)
+    webbrowser.open("https://tmnf.exchange/trackplay/" + "".join(filter(str.isdigit, x)), 0, False)
     os.system("pause")
