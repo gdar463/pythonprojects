@@ -22,10 +22,22 @@ for x in range(int(trackNum)):
         pyautogui.press("w")
     time.sleep(0.5)
 
-webbrowser.open("https://tmnf.exchange/trackplay/" + "".join(filter(str.isdigit, tracks[0][-7:])), 0, False)
-tracks.pop(0)
-os.system("pause")
+if os.path.isfile("tracks.txt"):
+    os.remove("tracks.txt")
 
-for x in tracks:
-    webbrowser.open("https://tmnf.exchange/trackplay/" + "".join(filter(str.isdigit, x[-7:])), 0, False)
-    os.system("pause")
+f = open("tracks.txt","w")
+f.writelines(tracks)
+f.close()
+
+with open("tracks.txt", "r") as f:
+    lines = f.readlines()
+
+with open("tracks.txt", "w") as f:
+    for x in tracks:
+        webbrowser.open("https://tmnf.exchange/trackplay/" + "".join(filter(str.isdigit, x[-7:])), 0, False)
+        for line in lines:
+            if line.strip("\n") != x:
+                f.write(line)
+        pause = input("\nThis is track number: " + x + "\nNext Track... ([N]o/[E]nter)\n")
+        if pause.lower() == "n":
+            break

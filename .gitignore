@@ -131,4 +131,5 @@ dmypy.json
 # Special Cases
 picnic/
 links/
+tracks.txt
 links.txt
