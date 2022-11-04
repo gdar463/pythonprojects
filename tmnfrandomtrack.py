@@ -26,7 +26,8 @@ if os.path.isfile("tracks.txt"):
     os.remove("tracks.txt")
 
 f = open("tracks.txt","w")
-f.writelines(tracks)
+for x in range(len(tracks)):
+    f.write(tracks[x] + "\n")
 f.close()
 
 with open("tracks.txt", "r") as f:
