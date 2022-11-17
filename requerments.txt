@@ -3,3 +3,5 @@ pyperclip
 pywinauto
 psutil
 pywin32
+webdriver-manager
+selenium
