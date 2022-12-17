@@ -58,3 +58,12 @@ def checkIfProcRunning(processName):
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
     return False
+
+def clearconsole():
+    osStrs = detectOs()
+    if osStrs == "win":
+        os.system("cls")
+    elif osStrs == "linux":
+        os.system("clear")
+    elif osStrs == "mac":
+        print("I don't know how to clear the history so...")
