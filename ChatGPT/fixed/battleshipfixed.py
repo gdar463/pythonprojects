@@ -1,9 +1,8 @@
 # I don't have the input for this
 #
 # Forgot to save it ;)
-import random
 import lib
-import os
+import random
 
 BOARD_SIZE = 10
 

@@ -13,12 +13,16 @@ from webdriver_manager.firefox import GeckoDriverManager
 found = False
 crash = False
 
+f = open("secrets.txt", "r")
+client = f.read().splitlines()
+f.close()
+
 if sys.version_info[0] == 3:
     raw_input = input
 
 service = OAuth2Service(
-    client_id="H6B1FCsjNVUEMSdJfhjWQeTy",  # your App ID from https://wakatime.com/apps
-    client_secret="sec_7lyWZ5qbfggG9JhvGZErrBtYmI3gXBXi2NnmSacphNM6LVm7UEmfxErdzoni8xN09xX1PGv3a96ctYkA",  # your App Secret from https://wakatime.com/apps
+    client_id=client[0],  # your App ID from https://wakatime.com/apps
+    client_secret=client[1],  # your App Secret from https://wakatime.com/apps
     name='wakatime',
     authorize_url='https://wakatime.com/oauth/authorize',
     access_token_url='https://wakatime.com/oauth/token',
