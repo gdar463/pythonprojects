@@ -40,7 +40,6 @@ def fileToDict(file):
     dict = {"dummy":"dummy"}
     dictFile = f.read()
     dictLines = dictFile.splitlines()
-    print(dictLines)
     dictDouble = str(dictLines).replace("[","").replace("]","").replace("(","").replace(")","").replace("'","").split(":")
     dictSingle = str(dictDouble).replace("[","").replace("]","").replace("(","").replace(")","").replace("'","").split(",")
     dict.clear()
