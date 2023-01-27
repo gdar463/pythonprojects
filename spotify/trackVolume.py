@@ -12,7 +12,7 @@ interface = devices.Activate(
 volume = cast(interface, POINTER(IAudioEndpointVolume))  # type: ignore
 
 def setMasterVolume(volumePercent):
-    scalarVolume = int(volumePercent) / 100
+    scalarVolume = abs(int(volumePercent) / 100)
     volume.SetMasterVolumeLevelScalar(scalarVolume, None)  # type: ignore
 
 scope = "user-read-playback-state"
