@@ -25,11 +25,10 @@ track = lib.fileToDict("trackVolumes.txt")
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=client[0], client_secret=client[1], redirect_uri=client[2]))
 
-results = str(sp.current_playback(market="IT"))
-
 while True:
+    results = str(sp.current_playback(market="IT"))
     for x in track.keys():
         if results.find(x):
             volumeTrack = int(str(track.get(x)))
             setMasterVolume(-volumeTrack)
-    time.sleep(1)
+    time.sleep(10)
