@@ -38,7 +38,7 @@ for x in errorsBin:
         print(index)
         print(int(index, 2))
         startList[int(index, 2)][1] = int(not startList[int(index, 2)][1])
-    errorsBin.remove(x)
+    errorsBin.pop(0)
 
 print(str(startList)
     #   .replace(", [", ",\n [")
