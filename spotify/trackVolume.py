@@ -12,7 +12,7 @@ interface = devices.Activate(
 volume = cast(interface, POINTER(IAudioEndpointVolume))  # type: ignore
 
 def setMasterVolume(volumePercent):
-    scalarVolume = abs(int(volumePercent) / 100)
+    scalarVolume = int(volumePercent) / 100
     volume.SetMasterVolumeLevelScalar(scalarVolume, None)  # type: ignore
 
 scope = "user-read-playback-state"
@@ -30,5 +30,5 @@ while True:
     for x in track.keys():
         if results.find(x):
             volumeTrack = int(str(track.get(x)))
-            setMasterVolume(-volumeTrack)
+            setMasterVolume(volumeTrack)
     time.sleep(10)
