@@ -1,70 +1,66 @@
+import logging
 import random
 import os
-import logging
 import time
-import bcrypt
-
-operations = ["add", "sub", "mul"]
-actions = []
-operands = []
 
 def invertList(list):
+    log.info(" A: " + str(actions) + "O: " + str(operands))
     temp = []
     for i in range(len(list)):
-        temp.append(list[len(list) - i - 1])
+        log.info(" I: " + str(i) + " T: " + str(temp) + " SI: " + str(len(list) - 1 - i) + " S: " + list[len(list) - 1 - i])
+        temp.append(list[len(list) - 1 - i])
     return temp
 
 if os.path.isfile("debug.txt"):
     f = open("debug.txt")
     if f.read() == "DEBUGON":
-        key = str.encode(input("Debug Key: "))
-        if bcrypt.checkpw(key, b"$2b$12$PTxifHu.LPpGs1pm20KAC.kP74.t/U2NpnNoA4ZDXA1uJ7ceVTMqu"):
-            logging.basicConfig(level=print("LOGLEVEL", "INFO"))
+        logging.basicConfig(level=10)
+    elif f.read() == "INFOON":
+        logging.basicConfig(level=20)
     f.close()
 
+operations = ["add", "sub", "mul"]
+actions = []
+operands = []
+
 log = logging.getLogger(" Thinker")
-log.setLevel(10)
 
 os.system("cls")
 print("Pensa ad un numero")
 time.sleep(2)
 
 for i in range(random.randint(3,7)):
-    selected = operations[random.randint(0,2)]
+    selected = random.choice(operations)
     if selected == "add":
-        actions.append("add")
-        operands.append(random.randint(1,20))
-        print("Adesso aggiungi " + str(operands[-1]) + " al numero")
-        input("Premi invio quando hai fatto")
-        log.debug(" A: " + str(actions[-1]) + " O: " + str(operands[-1]))
+        actions.append(selected)
+        operands.append(random.randint(1,25))
+        print("Aggiungi al numero " + str(operands[-1]))
+        input("Premi invio quando hai finito")
     elif selected == "sub":
-        actions.append("sub")
-        operands.append(random.randint(1,6))
-        print("Adesso sottrai " + str(operands[-1]) + " al numero")
-        input("Premi invio quando hai fatto")
-        log.debug(" A: " + str(actions[-1]) + " O: " + str(operands[-1]))
-    else:
-        actions.append("mul")
+        actions.append(selected)
+        operands.append(random.randint(1,10))
+        print("Sottrai al numero " + str(operands[-1]))
+        input("Premi invio quando hai finito")
+    elif selected == "mul":
+        actions.append(selected)
         operands.append(random.randint(2,5))
-        print("Adesso moltiplica il numero per " + str(operands[-1]))
-        input("Premi invio quando hai fatto")
-        log.debug(" A: " + str(actions[-1]) + " O: " + str(operands[-1]))
-
-print("Adesso dimmi il numero finale e cercherò di indovinarlo")
-num = int(input("Il numero finale è: "))
+        print("Moltiplica il numero per " + str(operands[-1]))
+        input("Premi invio quando hai finito")
+    log.debug(" A: " + str(actions[-1]) + " O: " + str(operands[-1]))
 
 actions = invertList(actions)
+
+print("Dimmi il numero finale e proverò a indovinarlo")
+num = int(input("Il numero finale è: "))
 
 for x in actions:
     if x == "add":
         num = num - operands[-1]
-        log.debug(" A: " + str(x) + " O: " + str(operands[-1]) + " N: " + str(num))
     elif x == "sub":
         num = num + operands[-1]
-        log.debug(" A: " + str(x) + " O: " + str(operands[-1]) + " N: " + str(num))
-    else:
+    elif x == "mul":
         num = num / operands[-1]
-        log.debug(" A: " + str(x) + " O: " + str(operands[-1]) + " N: " + str(num))
+    log.debug(" A: " + str(actions[0]) + " O: " + str(operands[-1]) + " N: " + str(num))
     operands.pop(-1)
 
-print("Il numero che hai pensato è " + str(num))
+print("Il numero che hai pensato è: " + str(num))
