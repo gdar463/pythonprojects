@@ -24,4 +24,4 @@ There might be some modifications that i did to the thread (excluding continue) 
 
 ## Fixed Folder
 
-The fixed folder has all the fixed code (if need) of the ai produced code, since sometimes it has some problems
+The fixed folder has all the fixed code (if needed) of the ai produced code, since sometimes it has some problems
