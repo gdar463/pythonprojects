@@ -15,11 +15,13 @@ class ANDGate(Scene):
         gate = Text("AND Gate")
         g = Group(gate, t0).arrange_in_grid(2,1,row_heights=[3.5,3.5]).shift(LEFT * 4).scale(0.5)
 
-        arc_conf = {"stroke_width": 0}
-        poly_conf = {"stroke_width": 10, "stroke_color": WHITE, "fill_opacity": 0, "color": BLACK}
+        arc_conf = {"stroke_width": 7}
         a, b, c = [-1, 0, 0], [1, 0, 0], [0, np.sqrt(3), 0]
-        arcs = [ArcBetweenPoints(a, b, radius=-2, **arc_conf), ArcBetweenPoints(b, c, radius=2, **arc_conf), ArcBetweenPoints(c, a, radius=2, **arc_conf)]
-        and_gate = ArcPolygonFromArcs(*arcs, **poly_conf).center()
+        dots = [Dot(a, 0.035), Dot(b, 0.035), Dot(c, 0.04)]
+        arc0, arc1 = ArcBetweenPoints(b, c, radius=2, **arc_conf), ArcBetweenPoints(c, a, radius=2, **arc_conf)
+        line = Line(dots[0].get_center(), dots[1].get_center()).set_stroke(width=7)
+        dots = Group(*dots)
+        and_gate = Group(arc0, arc1, line, dots).center()
 
         dot0, dot1, dot2, dot3, dot4, dot5 = Dot([-0.5, -0.7, 0]), Dot(bits[0]), Dot([0.5, -0.7, 0]), Dot(bits[1]), Dot([0, 0.9, 0]), Dot(bits[2])
         g0 = Group(dot1, dot3, dot5)
