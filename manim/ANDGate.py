@@ -23,7 +23,7 @@ class ANDGate(Scene):
         dots = Group(*dots)
         and_gate = Group(arc0, arc1, line, dots).center()
 
-        dot0, dot1, dot2, dot3, dot4, dot5 = Dot([-0.5, -0.7, 0]), Dot(bits[0]), Dot([0.5, -0.7, 0]), Dot(bits[1]), Dot([0, 0.9, 0]), Dot(bits[2])
+        dot0, dot1, dot2, dot3, dot4, dot5 = Dot([-0.5, -0.9, 0]), Dot(bits[0]), Dot([0.5, -0.9, 0]), Dot(bits[1]), Dot([0, 0.9, 0]), Dot(bits[2])
         g0 = Group(dot1, dot3, dot5)
         l0, l1, l2 = Line(dot1.get_center(), dot0.get_center()), Line(dot3.get_center(), dot2.get_center()), Line(dot4.get_center(), dot5.get_center())
         g1 = Group(l0, l1, l2)
