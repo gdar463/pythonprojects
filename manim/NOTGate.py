@@ -13,11 +13,11 @@ class NOTGate(Scene):
         gate = Text("NOT Gate")
         g = Group(gate, t0).arrange_in_grid(2,1,row_heights=[2.25,2.25]).shift(LEFT * 3.5).scale(0.7)
 
-        triangle = Triangle().set_color(WHITE).scale(1.2).center() # type: ignore
+        triangle = Triangle().set_color(WHITE).scale(1.2).center().set_stroke(width=10) # type: ignore
         circle = Circle(1).set_color(WHITE).scale(0.15) # type: ignore
-        not_gate = Group(triangle, circle).arrange_in_grid(2,1, row_heights=[-2.65,0])
+        not_gate = Group(triangle, circle).arrange_in_grid(2,1, row_heights=[-2.8,0])
 
-        dot0, dot1, dot2, dot3 = Dot([0, -1.06, 0]), Dot(bits[0]), Dot([0, 1.06, 0]), Dot(bits[1])  # type: ignore
+        dot0, dot1, dot2, dot3 = Dot([0, -1.06, 0]), Dot(bits[0]), Dot([0, 1.1, 0]), Dot(bits[1])  # type: ignore
         g0 = Group(dot1, dot3)
         l0, l1 = Line(dot1.get_center(), dot0.get_center()), Line(dot2.get_center(), dot3.get_center())
         g1 = Group(l0, l1)
