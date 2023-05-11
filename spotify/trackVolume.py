@@ -8,7 +8,7 @@ import time
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(
-    IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+    IAudioEndpointVolume._iid_, CLSCTX_ALL, None) # type: ignore
 volume = cast(interface, POINTER(IAudioEndpointVolume))  # type: ignore
 
 def setMasterVolume(volumePercent):
@@ -26,7 +26,7 @@ track = lib.fileToDict("trackVolumes.txt")
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=client[0], client_secret=client[1], redirect_uri=client[2]))
 
 while True:
-    results = str(sp.current_playback(market="IT"))
+    results = str(sp.current_playback(market=client[3]))
     for x in track.keys():
         if results.find(x):
             volumeTrack = int(str(track.get(x)))
